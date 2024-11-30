@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Reservas{% endblock %}
+
+{% block content %}
+    <h1>Gestion de Reservas</h1>
+    <p>Utilice el menu para navegar</p>
+    <ul>
+        {% for reserva in reservas %}
+        <li>{{ reserva.id_reserva }} - {{ reserva.cliente.nombre }} - {{ reserva.mesa.numero }} - {{ reserva.fecha }} <a href="/eliminar_reserva/{{ loop.index0 }}">Eliminar</a></li>
+        {% endfor %}
+        
+    </ul>
+    <form action="/agregar_reserva" method="post">
+        <select name="mesa">
+            {% for mesa in mesas %}
+            <option value="{{ mesa.numero }}">{{ mesa.numero }} - {{ mesa.tipo }} - {{ mesa.precio }}</option>
+            {% endfor %}
+        </select>
+        <select name="cliente">
+            {% for cliente in clientes %}
+            <option value="{{ cliente.nombre }}">{{ cliente.nombre }}</option>
+            {% endfor %}
+        </select>
+        <input type="date" name="fecha" placeholder="Fecha para programacion">
+        <button type="submit">Agregar</button>
+    </form>
+ 
+{% endblock %}

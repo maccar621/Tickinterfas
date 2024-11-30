@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Gestion de Tickets{% endblock %}
+
+{% block content %}
+    <h1>Bienvenido al Sistema de Gestion de Ticketes</h1>
+    <p>Utilice el menu para navegar por las diferentes opciones</p>
+    <ul>
+        {% for ticket in tickets %}
+        <li>{{ ticket.mostrar_info() }}<a href="/eliminar_ticket/{{ loop.index0 }}">Eliminar</a></li>
+        {% endfor %}
+    </ul>
+    <form action="/agregar_ticket" method="post">
+        <input type="text" name="nombre" placeholder="Nombre de Ticket">
+        <input type="text" name="ubicacion" placeholder="Ubicacion">
+        <button type="submit">Agregar</button>
+    </form>
+ 
+{% endblock %}

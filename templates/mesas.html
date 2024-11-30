@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Mesas{% endblock %}
+
+{% block content %}
+    <h1>Gestion de Mesas</h1>
+    <p>Utilice el menu para navegar por las diferentes opciones</p>
+    <ul>
+        {% for mesa in mesas %}
+        <li>{{ mesa.mostrar_info() }} <a href="/eliminar_mesa/{{ loop.index0 }}">Eliminar</a></li>
+        {% endfor %}
+        
+    </ul>
+    <form action="/agregar_mesa" method="post">
+        <select name="ticket">
+            {% for ticket in tickets %}
+                <option value="{{ ticket.nombre }}">{{ ticket.nombre }}</option>
+            {% endfor %}
+        </select>
+        <input type="text" name="numero" placeholder="Numero de Mesa">
+        <input type="text" name="tipo" placeholder="Tipo de Mesa">
+        <input type="text" name="precio" placeholder="Precio por Presentacion">
+        <button type="submit">Agregar</button>
+    </form>
+ 
+{% endblock %}

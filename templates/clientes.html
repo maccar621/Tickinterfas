@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Gestion de Clientes{% endblock %}
+
+{% block content %}
+    <h1>Gestion de Clientes</h1>
+    <ul>
+        {% for cliente in clientes %}
+        <li>{{ cliente.id_cliente }} - {{ cliente.nombre }} - {{ cliente.email}} </li>
+        {% endfor %}
+        
+    </ul>
+    <form action="/agregar_cliente" method="post">
+        <input type="text" name="nombre" placeholder="Nombre de cliente">
+        <input type="text" name="email" placeholder="email del cliente">
+        <button type="submit">Agregar</button>
+    </form>
+ 
+{% endblock %}

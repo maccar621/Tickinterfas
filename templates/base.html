@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/tickets">Tickets</a>
+        <a href="/mesas">Mesas</a>
+        <a href="/reservas">Reservas</a>
+        <a href="/clientes">Clientes</a>
+    </div>
+    <div class="content">
+        {% block content %}
+        
+        {% endblock %}
+    </div>
+
+
+</body>
+</html>

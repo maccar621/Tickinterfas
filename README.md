@@ -1,6 +1,6 @@
 # Tickinterfas
 ticketes presentacion interfas
-Desarrollado con Python y Flask 💪
+Desarrollado con Python y Flask
 Explota la combinación de estas tecnologías, para crear un sistema dinámico y eficiente.
 Crear mi entorno virtual
 python3 -m venv env.
